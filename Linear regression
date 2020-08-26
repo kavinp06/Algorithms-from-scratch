@@ -25,3 +25,22 @@ def simple_linear_regression(train, test):
 		yhat = b0 + b1 * row[0]
 		predictions.append(yhat)
 	return predictions
+
+import pandas as pd
+df=pd.read_csv("linregg.csv")
+a=[[df["SAT"].iloc[i],df["GPA"].iloc[i]] for i in range(len(df["SAT"]))]
+
+b=a[10:20]
+c=[b[i][1] for i in range(len(b))]
+
+
+d=simple_linear_regression(a,b)
+
+sumerror=0
+
+for j in range(len(c)):
+	error=(c[j]-d[j])/c[j]
+	error=error*100
+	sumerror+=abs(error)
+	print(error)
+print("Avg. Error =",sumerror/len(c),"%")
