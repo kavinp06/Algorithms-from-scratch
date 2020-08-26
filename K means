@@ -46,16 +46,19 @@ class K_Means:
         return classification
 
 
+
 import pandas as pd
 df=pd.read_csv("3.csv")
 a=df["sepal.length"]
 
 b=K_Means()
+
+print("Fitting Data: \n\nOptimising the Centroids \n")
+
 b.fit(a)
 
-b.predict(7)
 count1=0;
 for i in range(len(a)):
   if (b.predict(a.iloc[i])!=df['variety'].iloc[i]):
     count1+=1;
-print("Error / Total Predictions =",count1/len(a))
+print("\nError / Total Predictions =",count1/len(a))
