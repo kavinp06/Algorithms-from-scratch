@@ -33,6 +33,12 @@ import pandas as pd
 df=pd.read_csv("3.csv")
 a=[[df["sepal.length"].iloc[i],df["sepal.width"].iloc[i],df["variety"].iloc[i]] for i in range(len(df["sepal.length"]))]
 
-b=[[5,3]]
+sepal_length=5.9
+
+sepal_width=3.5
+
+b=[[sepal_length,sepal_width]]
+
+#b=a[40:50]
 
 k_nearest_neighbors(a,b,2)
