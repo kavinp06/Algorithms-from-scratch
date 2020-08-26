@@ -44,3 +44,18 @@ class K_Means:
         distances = [np.linalg.norm(data-self.centroids[centroid]) for centroid in self.centroids]
         classification = distances.index(min(distances))
         return classification
+
+
+import pandas as pd
+df=pd.read_csv("3.csv")
+a=df["sepal.length"]
+
+b=K_Means()
+b.fit(a)
+
+b.predict(7)
+count1=0;
+for i in range(len(a)):
+  if (b.predict(a.iloc[i])!=df['variety'].iloc[i]):
+    count1+=1;
+print("Error / Total Predictions =",count1/len(a))
