@@ -28,3 +28,11 @@ def k_nearest_neighbors(train, test, num_neighbors):
 		output = predict_classification(train, row, num_neighbors)
 		predictions.append(output)
 	return(predictions)
+
+import pandas as pd
+df=pd.read_csv("3.csv")
+a=[[df["sepal.length"].iloc[i],df["sepal.width"].iloc[i],df["variety"].iloc[i]] for i in range(len(df["sepal.length"]))]
+
+b=[[5,3]]
+
+k_nearest_neighbors(a,b,2)
